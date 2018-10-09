@@ -1,0 +1,93 @@
+<head>
+</head>
+<body>
+<div id='app-entry'>
+  <h3> Oregon Credentialing Application </h3>
+  <div id='indicative-entry'>
+    Provider Name: 
+    <p>
+   First:  <input id='first' type='text'> Last <input id='last' type='text'> Middle Int. <input id='middle' type='text'>
+          </p>
+    Provider Type: <input id='type' type='text' list='types' placeholder='Select'>  <div id='specialty-div' >
+      Specialty: <input id='specialty' type='text' placeholder='Select' list='specialtiesList'>
+    <div id='specialty-dropdown'>
+    </div>
+    </div>
+    <button id='test' onclick='testerLester()'>Test</button>
+
+ 
+   
+  
+  
+  
+  <datalist id='types'>
+    <option value="Medical Doctor">
+      <option value="Osteopathic Physician">
+        <option value ="Nurse Practitioner">
+          <option value="Optometry">
+            <option value='Psychology'>
+  </datalist>
+  <datalist id='specialtiesList'>
+  </datalist>
+  <datalist id='statesList'>
+  </datalist>
+    </div>
+  <div id='addresses-entry'>
+    Practice Address:
+    <div id='practice-div'>
+      Street Address: <input id='practice-streetAddress'>
+City: <input id='practice-city'> Zip <input id= 'practice-zip'>
+      Effective Date: <input id='practice-effective' type='date'>
+      </div>
+      <div id='additional-practice'>
+        To add additonal practice location click <input type='button' id='additional-button' value='Here'>
+      </div>
+    
+    <div id='remit-div'>
+      Remittance Address:
+   <br>
+      <br>
+      Street Address: <input id='remit-streetAddress'>
+City: <input id='remit-city'> State:<input id='remit-state' list='statesList'> Zip <input id= 'remit-zip'>
+    
+    </div>
+    <input id='submit' type='submit'>
+  </div>
+  </div> <!--app entry end-->
+  <div id='sidenav'>
+    <div id='indicative-nav' class='side-item' value='indicative'>
+      Indicative
+    </div>
+    <div id='address-nav' class='side-item' value='addresses'>
+      Addresses
+    </div>
+    <div id='oon-nav' class='side-item' value='oon'>
+Out of Network
+    </div>
+           </div><!--sidenav end-->
+  <div id='pages'>
+    <div id='indicative' class='page'>
+      Type: <input id='ind-type'></input>  Specialty: <input id='ind-type'></input> 
+    
+      
+</div> <!--indicative end -->
+<div id='addresses' class='page'>
+  <table id='address-table'>
+    <tr>
+      <th> Effective </th>
+      <th> Type </th>
+      <th> Prac </th>
+      <th> First address line </th>
+      <th> City </th>
+      <th> State </th>
+      <th> ZIP </th>
+    </tr>
+    <tr id='tr001'>
+    </tr>
+    <tr id='rowremit'>
+      </tr>
+  </table>
+</div> <!--addresses end-->
+</div> <!--pages end -->
+  
+  </body>
