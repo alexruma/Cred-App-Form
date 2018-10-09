@@ -1,0 +1,63 @@
+#specialty-div{
+  margin-top:8px;
+  border:solid black;
+  border-width: 0px 0px 1px 0px;
+}
+  
+#addresses{
+  margin-top:8px;
+  margin-bottom:18px;
+  border:solid black;
+  border-width: 0px 0px 1px 0px;
+}
+#practice-div{
+  border:solid black;
+  border-width: 0px 0px 1px 0px;
+}
+#remit-div{
+  border:solid black;
+  border-width: 0px 0px 1px 0px;
+}
+
+div{
+  margin-top:8px;
+  
+  
+}
+
+#sidenav {
+    height: 100%;
+    width: 160px;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    border: ridge gray;
+    overflow-x: hidden;
+    padding-top: 20px;
+  display:none;
+}
+.side-item:hover {
+    color: gray;
+}
+
+#pages{
+   margin-left: 160px;
+}
+#app-entry{
+ 
+}
+#indicative{
+  display:none;
+ 
+}
+th{
+  padding:25px;
+}
+td{
+  padding: 25px;
+}
+#addresses{
+  display:none;
+}
+
