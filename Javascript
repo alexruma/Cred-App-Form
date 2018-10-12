@@ -1,0 +1,323 @@
+let providerTypes=["Medical Doctor", "Osteopathic Physician", "Nurse Practitioner", "Optometry", "Psychology"];
+
+let providerSpecialties=[" Emergency Medicine", "Family Medicine", "Optometry", "Internal Medicine", "Psychology", "Cardiology", "Radiology", "Pathology", "Anesthesiology", "Psychiatry", "Cardiology", "General Surgery","Urgent Care Provider"];
+let states=[ 'AL', 'AK', 'AS', 'AZ', 'AR', 'CA', 'CO', 'CT', 'DE', 'DC', 'FM', 'FL', 'GA', 'GU', 'HI', 'ID', 'IL', 'IN', 'IA', 'KS', 'KY', 'LA', 'ME', 'MH', 'MD', 'MA', 'MI', 'MN', 'MS', 'MO', 'MT', 'NE', 'NV', 'NH', 'NJ', 'NM', 'NY', 'NC', 'ND', 'MP', 'OH', 'OK', 'OR', 'PW', 'PA', 'PR', 'RI', 'SC', 'SD', 'TN', 'TX', 'UT', 'VT', 'VI', 'VA', 'WA', 'WV', 'WI', 'WY' ];
+
+function specialtySearch(){
+  let searchBar=document.getElementById('specialty');
+  let dropdown=document.getElementById('specialty-dropdown');
+  let val=searchBar.value;
+  if (searchBar.value==''){
+ providerSpecialties.map(val=>{
+
+   let line=document.createElement('line');
+ 
+   let breaker='<br>'
+   line.innerHTML=breaker+val;
+   dropdown.appendChild(line);
+  
+ }
+                        );
+  }
+}
+
+
+function createList(){
+ 
+
+  
+  providerSpecialties.map(val=>{
+   
+  
+      let listValue= document.createElement('option')
+      listValue.value=val;
+  document.getElementById('specialtiesList').appendChild(listValue);
+
+    
+  });
+  states.map(val=>{
+   
+  
+      let listValue= document.createElement('option')
+      listValue.value=val;
+  document.getElementById('statesList').appendChild(listValue);
+
+    
+  });
+
+
+ }
+//testing function
+function testerLester(){
+  
+let objecter={
+  
+  address2:{
+  dog: 'Yes',
+  cat: 'No',
+  legs: 4
+},
+     address3:{
+  dog: 'No',
+  cat: 'Yes',
+  legs: 4
+}
+}
+let keys=Object.keys(objecter);
+  for( let i=0; i <keys.length;i++){
+  let twoKeys=Object.keys(objecter[keys[i]]);
+    alert(objecter[keys[i]][twoKeys[1]])
+  }
+  console.log(objecter[keys[1]][1])
+}
+//end testerLester
+
+
+
+
+ const sideItems=document.getElementsByClassName('side-item');
+let sideItemsArray=['indicative','addresses', 'oon'];
+
+//submit button function
+function submitButton(){
+  document.getElementById('app-entry').style.display='none';
+  document.getElementById('sidenav').style.display='block';
+ let indicativeObj={
+   
+ };
+  // assigning values for the Indicative page to the indicative object
+  let date=document.getElementById('practice-effective').value;
+  date=date.split('');
+  date.splice(8,2,'0','1');
+  date=date.join('');
+  indicativeObj.effective001=date;
+  
+ 
+  indicativeObj.type001="001";
+  
+ 
+  indicativeObj.prac="Yes"
+  indicativeObj.street001=document.getElementById('practice-streetAddress').value;
+
+  indicativeObj.city001=document.getElementById('practice-city').value;
+  
+  indicativeObj.state001="OR";
+  indicativeObj.zip001=document.getElementById('practice-zip').value;
+indicativeObj.remitDate=document.getElementById('remit-effective').value;
+indicativeObj.remitType='R01';
+  indicativeObj.remitPrac="No"
+  indicativeObj.remitStreet=document.getElementById('remit-streetAddress').value;
+ 
+  indicativeObj.remitCity=document.getElementById('remit-city').value;
+  indicativeObj.remitState=document.getElementById('remit-state').value;
+  indicativeObj.remitZip=document.getElementById('remit-zip').value;
+  
+  
+let addtlAddresses={
+  
+};
+
+ 
+   
+  
+ while (pracLocationCount>1){
+   function newAddress(date,type,street,city,zip){
+this.date=date;
+this.type=type;
+this.prac='Yes';
+this.street=street;
+this.city=city;
+this.state="OR";
+     this.zip=zip;
+}
+   let newDate=document.getElementById('practice-effective'+pracLocationCount).value.split('');
+    newDate.splice(8,2,'0','1');
+   newDate=newDate.join('');
+ 
+   let newType="00"+pracLocationCount;
+    let newStreet=document.getElementById('practice-streetAddress'+pracLocationCount).value;
+   let newCity=document.getElementById('practice-city'+pracLocationCount).value; 
+   let newZip=document.getElementById('practice-zip'+pracLocationCount).value; 
+    
+addtlAddresses['address'+pracLocationCount]=new newAddress(newDate, newType,newStreet, newCity, newZip);
+   
+pracLocationCount--
+
+  }
+ 
+ //assigning object values to HTML
+  let indicativeKeys=Object.keys(indicativeObj)
+
+ 
+  let row001=document.createElement('tr');
+let rowR01=document.createElement('tr');
+
+ 
+ //001
+  for (let i=0; i<7;i++){
+       let newColumn=document.createElement('td');
+    newColumn.textContent=indicativeObj[indicativeKeys[i]];
+    
+    row001.appendChild(newColumn)
+  }
+  //R01
+    for (let i=7; i<14;i++){
+       let newColumn=document.createElement('td');
+    newColumn.textContent=indicativeObj[indicativeKeys[i]];
+    rowR01.appendChild(newColumn)
+    
+  }
+    document.getElementById('address-table').appendChild(row001);
+  document.getElementById('address-table').appendChild(rowR01);
+  //writing additonal address obj values to the HTML
+
+let addtlKeys=Object.keys(addtlAddresses);
+let addtlKeysLength=addtlKeys.length;
+  let keyStart=0;
+  for(let i=0; i<addtlKeys.length; i++){
+   console.log(addtlAddresses[addtlKeys[i]])
+  let insideKeys=Object.keys(addtlAddresses[addtlKeys[i]]);
+    let newRow=document.createElement('tr');
+    for (let j=0; j<= insideKeys.length; j++){
+      let newColumn=document.createElement('td');
+      newColumn.textContent=addtlAddresses[addtlKeys[i]][insideKeys[j]];
+  
+      newRow.appendChild(newColumn);
+      
+    
+    document.getElementById('address-table').appendChild(newRow);
+   
+    
+  }
+    }
+  generateOON(date);
+}
+
+
+function sideNav(val){
+  let pages=document.getElementsByClassName('page');
+ for (let i=0; i<pages.length;i++){
+   pages[i].style.display='none';
+ }
+  let target=sideItemsArray[val];
+  
+  document.getElementById(target).style.display='block';
+ 
+  
+}
+let pracLocationCount=1;
+function addLocation(){
+
+  pracLocationCount++;
+   
+  let headline=document.createElement('div');
+  
+  headline.textContent='Practice Address ' + pracLocationCount +':';
+  let inputs=document.createElement('div');
+  inputs.innerHTML="Street Address: <input id='practice-streetAddress"+pracLocationCount+"'> City: <input id='practice-city"+pracLocationCount+"'> Zip <input id= 'practice-zip"+pracLocationCount+"'>  Effective Date: <input id='practice-effective"+pracLocationCount+"' type='date'>"
+   
+  document.getElementById('practice-div').appendChild(headline);
+   document.getElementById('practice-div').appendChild(inputs);
+
+  
+}
+function generateOON(date){
+  
+  let rows={};
+  const ORNPPR="ORNPPRFX001"
+  
+  rows.r9001=ORNPPR;
+  rows.r9003=ORNPPR;
+  rows.r9016=ORNPPR;
+  rows.r9017=ORNPPR;
+  rows.r9019=ORNPPR;
+  rows.r9022=ORNPPR;
+  rows.r9022=ORNPPR;
+  rows.r9023=ORNPPR;
+  rows.r9024=ORNPPR;
+  rows.r9025=ORNPPR;
+  rows.r9026=ORNPPR;
+  if(document.getElementById('specialty').value=="Anesthesiology" ||document.getElementById('specialty').value=="Pathology" ||document.getElementById('specialty').value=="Radiology" ){
+    rows.r9014="BILLALLW001";
+  }
+  else{
+    rows.r9014=ORNPPR;
+  }
+     
+  let OONKey=Object.keys(rows);
+  for (let i=0; i<OONKey.length; i++){
+    let newRow=document.createElement('tr');
+    let prefix=document.createElement('td');
+    let AGAG=document.createElement('td');
+    let effDate=document.createElement('td');
+    
+    let prefixVar=OONKey[i];
+     prefixVar=prefixVar.split("");
+    prefixVar.splice(0,1);
+  prefixVar=prefixVar.join("");
+    prefix.textContent=prefixVar;
+    AGAG.textContent=rows[OONKey[i]];
+    effDate.textContent=date;
+
+    newRow.appendChild(prefix);
+    newRow.appendChild(AGAG);
+      
+      newRow.appendChild(effDate);
+    document.getElementById('oon-table').appendChild(newRow);
+  
+    
+  }
+  
+}
+
+//OON table sorting function
+let prefixOrder=0;
+function tableSort(val){
+ let prefixCellsArray=[];
+  let agreementCellsArray=[];
+  let rows=document.getElementById('oon-table').rows;
+
+  for (let i=1; i< rows.length; i++){
+ let cells= rows[i].getElementsByTagName('td');
+  
+   
+    
+    prefixCellsArray.push(cells[val].innerText)
+    agreementCellsArray.push(cells[val+1].innerText)
+     }
+  console.log(agreementCellsArray);
+  if (prefixOrder==0){
+    prefixCellsArray.sort((a,b)=>{
+       return a-b;
+     })
+   for (let i=1; i<rows.length; i++){
+     let cells= rows[i].getElementsByTagName('td');
+        cells[val].innerText=cellsArray[i-1];
+     
+   }
+    prefixOrder++
+  }
+ 
+
+   alert(val)
+}
+
+
+
+document.getElementById('product-prefix').addEventListener('click', ()=>{tableSort(0)})
+document.getElementById('additional-button').addEventListener('click', addLocation)
+addEventListener('load', createList );
+document.getElementById('submit').addEventListener('click', submitButton);
+for (let i=0; i <sideItems.length; i++){
+  
+  
+    sideItems[i].addEventListener('click',function(i){
+      return function(){
+        sideNav(i);
+      }
+   
+  }(i))
+    
+  }
+
+// https://stackoverflow.com/questions/40263270/adding-click-event-listener-using-for-loop
