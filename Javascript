@@ -274,7 +274,7 @@ function generateOON(date){
 let prefixOrder=0;
 function tableSort(val){
  let prefixCellsArray=[];
-  let agreementCellsArray=[];
+ 
   let rows=document.getElementById('oon-table').rows;
 
   for (let i=1; i< rows.length; i++){
@@ -282,17 +282,19 @@ function tableSort(val){
   
    
     
-    prefixCellsArray.push(cells[val].innerText)
-    agreementCellsArray.push(cells[val+1].innerText)
+    prefixCellsArray.push({prefix: cells[val].innerText, agag: cells[val+1].innerText})
+    
      }
-  console.log(agreementCellsArray);
+  
   if (prefixOrder==0){
     prefixCellsArray.sort((a,b)=>{
-       return a-b;
+       return a.prefix-b.prefix;
      })
+    console.log(prefixCellsArray);
    for (let i=1; i<rows.length; i++){
      let cells= rows[i].getElementsByTagName('td');
-        cells[val].innerText=cellsArray[i-1];
+        cells[val].innerText=prefixCellsArray[i-1].prefix;
+     cells[val+1].innerText=prefixCellsArray[i-1].agag;
      
    }
     prefixOrder++
