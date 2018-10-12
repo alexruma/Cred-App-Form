@@ -1,0 +1,88 @@
+#specialty-div{
+  margin-top:8px;
+  border:solid black;
+  border-width: 0px 0px 1px 0px;
+}
+  
+#addresses{
+  margin-top:8px;
+  margin-bottom:18px;
+  border:solid black;
+  border-width: 0px 0px 1px 0px;
+}
+#practice-div{
+  border:solid black;
+  border-width: 0px 0px 1px 0px;
+}
+#remit-div{
+  border:solid black;
+  border-width: 0px 0px 1px 0px;
+}
+
+div{
+  margin-top:8px;
+  
+  
+}
+
+#sidenav {
+    height: 100%;
+    width: 160px;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    border: ridge gray;
+    overflow-x: hidden;
+    padding-top: 20px;
+  display:none;
+}
+.side-item:hover {
+    color: gray;
+}
+
+#pages{
+   margin-left: 160px;
+}
+#app-entry{
+ 
+}
+#indicative{
+  display:none;
+ 
+}
+th{
+  padding:8px;
+   border: 1px ridge gray;
+    border-collapse: collapse;
+  
+}
+td{
+  padding: 8px;
+   border: 1px solid black;
+    border-collapse: collapse;
+  
+}
+table{
+   border-collapse: collapse;
+}
+#addresses{
+  display:none;
+}
+#oon{
+  display:none;
+
+}
+#oon-table{
+     
+}
+.table-header{
+  border: solid black;
+  background-color: #b3cce6;
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+#th{
+   border: solid black;
+  background-color: #b3cce6;
+}
