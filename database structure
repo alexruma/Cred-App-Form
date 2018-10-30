@@ -1,0 +1,25 @@
+database[i] structure:
+
+database[i][0]=id
+ex: "1001"
+
+[1]=001 address from indicativeObj
+ex: Object {
+  city001: "Test Town",
+  effective001: "2018-10-01",
+  prac: "Yes",
+  state001: "OR",
+  street001: "123 Ave",
+  type001: "001",
+  zip001: "97702"
+}
+[2]=R01 address from remitObj
+ex: Object {
+  remitCity: "RumbaCity",
+  remitDate: "2018-10-01",
+  remitPrac: "No",
+  remitState: "OR",
+  remitStreet: "123 Rum",
+  remitType: "R01",
+  remitZip: "97701"
+}
