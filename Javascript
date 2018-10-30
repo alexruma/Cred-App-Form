@@ -82,17 +82,27 @@ let sideItemsArray=['indicative','addresses', 'oon'];
 function submitButton(){
   document.getElementById('app-entry').style.display='none';
   document.getElementById('sidenav').style.display='block';
- let indicativeObj={
+ let indicativeObj={};
+    
+  let remitObj={};
    
- };
-  // assigning values for the Indicative page to the indicative object
+  // assigning values for the Indicative page to the indicative object and remit object
   let date=document.getElementById('practice-effective').value;
   date=date.split('');
   date.splice(8,2,'0','1');
   date=date.join('');
-  indicativeObj.effective001=date;
   
+    let remitDate=document.getElementById('remit-effective').value;
+
+  remitDate=remitDate.split('');
+  
+  remitDate.splice(8,2,'0','1');
+  
+  remitDate=remitDate.join('');
+     
+  indicativeObj.effective001=date;
  
+
   indicativeObj.type001="001";
   
  
@@ -103,22 +113,24 @@ function submitButton(){
   
   indicativeObj.state001="OR";
   indicativeObj.zip001=document.getElementById('practice-zip').value;
-indicativeObj.remitDate=document.getElementById('remit-effective').value;
-indicativeObj.remitType='R01';
-  indicativeObj.remitPrac="No"
-  indicativeObj.remitStreet=document.getElementById('remit-streetAddress').value;
+  
+remitObj.remitDate=remitDate;
+remitObj.remitType='R01';
+  remitObj.remitPrac="No"
+  remitObj.remitStreet=document.getElementById('remit-streetAddress').value;
  
-  indicativeObj.remitCity=document.getElementById('remit-city').value;
-  indicativeObj.remitState=document.getElementById('remit-state').value;
-  indicativeObj.remitZip=document.getElementById('remit-zip').value;
+  remitObj.remitCity=document.getElementById('remit-city').value;
+  remitObj.remitState=document.getElementById('remit-state').value;
+  remitObj.remitZip=document.getElementById('remit-zip').value;
   
-  
+  holder.push(indicativeObj,remitObj);
+
 let addtlAddresses={
   
 };
 
  
-   
+ 
   
  while (pracLocationCount>1){
    function newAddress(date,type,street,city,zip){
@@ -144,9 +156,11 @@ addtlAddresses['address'+pracLocationCount]=new newAddress(newDate, newType,newS
 pracLocationCount--
 
   }
+  holder.push(addtlAddresses)
  
  //assigning object values to HTML
-  let indicativeKeys=Object.keys(indicativeObj)
+  let indicativeKeys=Object.keys(indicativeObj);
+  let remitKeys=Object.keys(remitObj);
 
  
   let row001=document.createElement('tr');
@@ -154,16 +168,16 @@ let rowR01=document.createElement('tr');
 
  
  //001
-  for (let i=0; i<7;i++){
+  for (let i=0; i<indicativeKeys.length;i++){
        let newColumn=document.createElement('td');
     newColumn.textContent=indicativeObj[indicativeKeys[i]];
     
     row001.appendChild(newColumn)
   }
   //R01
-    for (let i=7; i<14;i++){
+    for (let i=0; i<remitKeys.length; i++){
        let newColumn=document.createElement('td');
-    newColumn.textContent=indicativeObj[indicativeKeys[i]];
+    newColumn.textContent=remitObj[remitKeys[i]];
     rowR01.appendChild(newColumn)
     
   }
@@ -175,7 +189,7 @@ let addtlKeys=Object.keys(addtlAddresses);
 let addtlKeysLength=addtlKeys.length;
   let keyStart=0;
   for(let i=0; i<addtlKeys.length; i++){
-   console.log(addtlAddresses[addtlKeys[i]])
+   
   let insideKeys=Object.keys(addtlAddresses[addtlKeys[i]]);
     let newRow=document.createElement('tr');
     for (let j=0; j<= insideKeys.length; j++){
