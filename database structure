@@ -24,3 +24,9 @@ ex: Object {
   remitZip: "97701"
 }
 [3]= Addtl Addresses
+[4]=OON rows
+[5]=Name
+ex: <div> last name, first name middle initial. </div>
+OR <div> Ruma, Alex H. </div>>
+[6]=provider type
+[7]=provider specialty
